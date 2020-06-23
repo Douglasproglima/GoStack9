@@ -1,0 +1,73 @@
+0 - Instalar o chocolate e no terminal instalar a fonte firacode: 
+  choco install firacode
+
+1 - Pluggins:
+  Rocketseat ReactJS
+  Rocketseat React Native
+  Material Icon Theme
+  Color Highlight
+
+2 - Instalar o terminal https://hyper.is/
+
+3 - No arquivo settings.json do vsCode:
+{
+    "editor.fontSize": 20,
+    "explorer.confirmDelete": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.rulers": [80, 120],
+    "editor.renderLineHighlight": "gutter",
+    "editor.tabSize": 2,
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+    "emmet.syntaxProfiles": {
+      "javascript": "jsx"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "editor.parameterHints.enabled": false,
+    "breadcrumbs.enabled": true,
+    "javascript.suggest.autoImports": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "git.autofetch": true,
+    "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "explorer.confirmDragAndDrop": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.donotVerifyTags": true,
+    "terminal.integrated.fontSize": 16,
+    "debug.console.fontSize": 16,
+    "markdown.preview.fontSize": 16,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "files.autoSave": "afterDelay",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    "workbench.colorTheme": "Dracula",
+    "terminal.integrated.env.osx": {
+    
+    },
+    "window.zoomLevel": 0,
+    "eslint.alwaysShowStatus": true,
+    "eslint.trace.server": "messages",
+    "eslint.validate": [
+      "vue",
+      "html",
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact"
+  ],
+  "gitlens.advanced.messages": {
+    "suppressLineUncommittedWarning": true
+  }
+}
