@@ -71,3 +71,6 @@
     "suppressLineUncommittedWarning": true
   }
 }
+
+4 - Nodemon: Atualiza o servidor após alteração no codeActionsOnSave
+yarn add nodemon -D
