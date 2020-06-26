@@ -1,0 +1,19 @@
+{
+  "name": "gobarber",
+  "version": "1.0.0",
+  "description": "Agendamento de Serviços de Barbearias",
+  "main": "index.js",
+  "repository": "https://github.com/Douglasproglima/GoStack9/tree/master/modulo_2",
+  "author": "Douglas Lima",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "nodemon ./src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
