@@ -1,0 +1,25 @@
+Como funciona:
+ * Criação de ambientes isolados(containers);
+ * Containers expõe portas para comunição externa com as ferramentas dentro dos containers;
+ 
+ Conceitos:
+  * Imagem: Serviço disponivel do docker ou ferramentas que pode colocar dentro do containers;
+  * Container é uma instância de uma imagem(SQL Server, PostgreSQL, MySQL);
+  * Docker Registry(Docker Hub): Local onde estão disponiveis todas as images do docker(site);
+  * Dockerfile:
+    Receita de uma imagem(A receita para o docker funcionar):
+      # Imagem já existente
+      - FROM node:10
+
+      # Define a pasta onde será copiado os arquivos:
+      WORKDIR /C:/app
+      COPY ../
+
+      # Instala as dependências
+      RUN yarn ou RUN npm i
+
+      # Qual porta será usadada expor
+      EXPOSE 3333
+
+      # Executa o app
+      CMD yarn start

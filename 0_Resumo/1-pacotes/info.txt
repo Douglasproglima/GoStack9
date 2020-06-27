@@ -1,0 +1,24 @@
+0 - Instalar o chocolate e no terminal instalar a fonte firacode: 
+  choco install firacode
+
+1 - Pluggins:
+  Rocketseat ReactJS
+  Rocketseat React Native
+  Material Icon Theme
+  Color Highlight
+
+4 - Nodemon: Atualiza o servidor após alteração no codeActionsOnSave
+  yarn add nodemon -D
+
+5 - Sucrase: Responsável por habilitar o 'import' e o 'export'. 
+    Obs: O node não reconhece o import/export nos scripts do package.json é usado o sucrase
+    yarn add sucrase -D
+
+5.1 - Criar arquivo nodemon.js:
+{
+  "execMap": {
+    "js": "node -r sucrase/register"
+  }
+}
+
+5.2 - 
