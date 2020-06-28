@@ -1,0 +1,38 @@
+Windows: https://docs.docker.com/docker-for-windows/install/
+
+Docker Desktop:
+1 - Instalar o docker
+
+2 - Criar a imagem do postgres
+  https://hub.docker.com/_/postgres
+
+2.1 - No Powershell:
+Exemplo:
+    docker run --name nome_container -e POSTGRES_PASSWORD=senha_bd -p 5432:porta_container
+
+    docker run --name db_postgres -e POSTGRES_PASSWORD=123456 -p 5432:5432 -d postgres:13
+
+3 - Instalar postbird para ver os dados do postgres:
+  https://www.electronjs.org/apps/postbird
+
+
+Se for usar o docker dentro da instancia do ubuntu no windows:
+Linux..: https://docs.docker.com/engine/install/
+
+1 - No windows instalar o terminal ubuntu, cmder, quando tiver acesso ao terminal ubuntu
+    basta instalar o docker seguinte esse tutorial: 
+    https://www.digitalocean.com/community/tutorials/como-instalar-e-usar-o-docker-no-ubuntu-18-04-pt
+
+2 - Instalar a imagem postgres no container:
+  image: https://hub.docker.com/_/postgres
+
+  2.0 - Levantar o docker:
+    sudo service docker start
+    sudo /etc/init.d/docker start
+    /etc/init.d/docker start
+
+  2.1 - Criar a imagem: 
+    Exemplo:
+    sudo docker run --name nome_container -e POSTGRES_PASSWORD=senha_bd -p 5432:porta_container
+
+    sudo docker run --name img_db_postgres -e POSTGRES_PASSWORD=123456 -p 5432:5432 -d postgres:13
