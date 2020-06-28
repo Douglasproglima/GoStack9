@@ -1,0 +1,62 @@
+//DIALETS https://sequelize.org/master/manual/dialect-specific-things.html
+//MYSQL
+const sequelize = new Sequelize('database', 'username', 'password', {
+  dialect: 'mysql',
+  dialectOptions: {
+    // Your mysql2 options here
+  }
+})
+
+//MariaDB
+const sequelize = new Sequelize('database', 'username', 'password', {
+  dialect: 'mariadb',
+  dialectOptions: {
+    // Your mariadb options here
+    // connectTimeout: 1000
+  }
+});
+
+//PostgreSQL
+const sequelize = new Sequelize('database', 'username', 'password', {
+  dialect: 'postgres',
+  dialectOptions: {
+    // Your pg options here
+  }
+});
+
+//host
+const sequelize = new Sequelize('database', 'username', 'password', {
+  dialect: 'postgres',
+  host: '/path/to/socket_directory'
+});
+
+//MSSQL
+const sequelize = new Sequelize('database', 'username', 'password', {
+  dialect: 'postgres',
+  dialectOptions: {
+    // Observe the need for this nested `options` field for MSSQL
+    options: {
+      // Your tedious options here
+      useUTC: false,
+      dateFirst: 1
+    }
+  }
+});
+
+//MSSQL Domain Account
+const sequelize = new Sequelize('database', null, null, {
+  dialect: 'mssql',
+  dialectOptions: {
+    authentication: {
+      type: 'ntlm',
+      options: {
+        domain: 'yourDomain',
+        userName: 'username',
+        password: 'password'
+      }
+    },
+    options: {
+      instanceName: 'SQLEXPRESS'
+    }
+  }
+})

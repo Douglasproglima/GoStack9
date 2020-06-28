@@ -1,0 +1,18 @@
+Estrutura de Pastas:
+src
+  app
+    controllers
+    models
+  config
+    database.js
+  database
+    migrations
+
+1 - Após defininr a estrutura acima
+  yarn add sequelize-cli -D
+
+2 - No arquivo config/database.js configurar o BD
+  2.1 - Instalar dependencia do BD
+  Exemplo: 
+    yarn add pg pg-hstore
+
