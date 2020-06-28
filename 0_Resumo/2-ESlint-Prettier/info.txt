@@ -1,0 +1,11 @@
+1 - ESLint => Padrão de código e regras definidas pelo AirnBnb:
+  yarn add eslint
+
+2 - Iniciar/Criar o arquivo de configuração do ESLint
+  yarn eslint --init
+
+3 - prettier: Deixa o código mais bonito(Checagem de big line code)
+  yarn add prettier eslint-config-prettier eslint-plugin-prettier
+
+Obs: Case de merda, seguir esse tutorial:
+https://medium.com/@fabiojanio/node-js-express-es6-eslint-sucrase-de-forma-simples-e-r%C3%A1pida-8467fcfae728
