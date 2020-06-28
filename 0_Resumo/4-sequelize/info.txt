@@ -1,0 +1,27 @@
+Migrations: Controle de versão das alterações do BD
+
+Seeds: Cria registros fakes para testar o app
+
+MODEL
+  Utilizado para abstrair o BD contidos nas tabelas; 
+  ORM:
+    Abstração do DB:
+    As tabelas do BD viram Class Models;
+
+CONTROLLER
+  Regra de negócio do App. É o ponto de entrada das requisições do app, quando o usuário
+  chama o app, é no controller que tem o primerio contato.
+
+  Estrutura:
+    Possui Classes, geralmente possui o seguintes métodos:
+      index() => Listar N
+      show()  => Listar 1
+      store() => Criar
+      update()=> Alterar
+      delete()=> Deletar
+
+    Retorna Json
+    Não faz chama de outro controller/método
+
+VIEW
+  Retornno das informações do MODEL->CONTROLLER para a VIEW(Json) -> React ou App's
