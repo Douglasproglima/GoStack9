@@ -9,10 +9,19 @@ src
     migrations
 
 1 - Após defininr a estrutura acima
+  yarn add sequelize@5.21.10
   yarn add sequelize-cli -D
 
 2 - No arquivo config/database.js configurar o BD
   2.1 - Instalar dependencia do BD
   Exemplo: 
     yarn add pg pg-hstore
+
+3 - criar a migration users
+  yarn sequelize migration:create --name=create-users
+
+4 - Add os campos e propriedades que os campos terão no BD
+
+5 - Criar a tabela no DB:
+  yarn sequelize db:migrate
 

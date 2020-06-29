@@ -1,0 +1,13 @@
+1 - Dotenv
+  yarn add dotenv -D
+
+2 - Cria na raiz do projeto o arquivo .env e add as info privadas:
+ APP_NAME=Nome do App
+
+SECRET_API=9as1%12#xz0#@
+
+# Banco de dados
+DB_NAME=gobarber
+DB_HOST=localhost
+DB_USER=postgres
+DB_PASS=123456
