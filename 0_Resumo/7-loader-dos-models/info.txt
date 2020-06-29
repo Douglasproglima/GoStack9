@@ -1,0 +1,2 @@
+1 - Para que o app possa ver os models/tables do BD é necessário configurar o arquivo 
+    index.js na pasta databases, crie este arquivo;
