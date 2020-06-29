@@ -1,0 +1,2 @@
+1 - Criar o arquivo dentro da pasta app/controller. Exemplo: UserController.js
+
