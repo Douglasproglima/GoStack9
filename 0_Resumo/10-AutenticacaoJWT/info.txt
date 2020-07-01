@@ -1,0 +1,2 @@
+1 - Instalar o pacote JsonWebToken, responsavel por gerar o Token
+  yarn add jsonwebtoken
