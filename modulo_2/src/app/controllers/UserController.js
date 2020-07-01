@@ -16,7 +16,8 @@ class UserController {
       return res.json({ id, name, email, provider });
     } catch (err) {
       return res.status(400).json({
-        errors: err.errors.map((erro) => erro.message),
+        errors: err,
+        // errors: err.errors.map((erro) => erro.message),
       });
     }
   }
@@ -30,7 +31,8 @@ class UserController {
       return res.json(users);
     } catch (err) {
       return res.status(400).json({
-        errors: err.errors.map((erro) => erro.message),
+        errors: err,
+        // errors: err.errors.map((erro) => erro.message),
       });
     }
   }
@@ -45,26 +47,38 @@ class UserController {
       return res.json({ id, name, email });
     } catch (err) {
       return res.status(400).json({
-        errors: err.errors.map((erro) => erro.message),
+        errors: err,
+        // errors: err.errors.map((erro) => erro.message),
       });
     }
   }
 
   async update(req, res) {
     try {
-      const user = await User.findByPk(req.params.id);
+      const { email, oldPassword } = req.body;
+      const user = await User.findByPk(req.userId);
       if (!user) {
         return res.status(400).json({
           erros: ['Nenhum registro encontrado'],
         });
       }
 
-      const userUpdate = await user.update(req.body);
-      const { id, name, email } = userUpdate;
-      return res.json({ id, name, email });
+      if (email !== user.email) {
+        const userExists = await User.findOne({ where: { email } });
+
+        if (userExists)
+          return res.status(400).json({ message: 'User already exists.' });
+      }
+
+      if (oldPassword && !(await user.checkPassword(oldPassword)))
+        return res.status(401).json({ error: 'Password does not match.' });
+
+      const { id, name, provider } = await user.update(req.body);
+      return res.json({ id, name, email, provider });
     } catch (err) {
       return res.status(400).json({
-        errors: err.errors.map((erro) => erro.message),
+        errors: `Erro inesperado`,
+        // errors: err.errors.map((erro) => erro.message),
       });
     }
   }
@@ -84,7 +98,8 @@ class UserController {
       });
     } catch (err) {
       return res.status(400).json({
-        errors: err.errors.map((erro) => erro.message),
+        errors: err,
+        // errors: err.errors.map((erro) => erro.message),
       });
     }
   }
