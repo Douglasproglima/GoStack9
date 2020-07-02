@@ -1,0 +1,4 @@
+Library para validar campos enviados no corpo da requisição:
+
+  Yup validation
+  yarn add yup
