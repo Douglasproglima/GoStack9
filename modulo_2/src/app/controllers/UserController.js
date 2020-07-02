@@ -81,6 +81,11 @@ class UserController {
         ),
       });
 
+      if (!(await schema.isValid(req.body)))
+        return res
+          .status(400)
+          .json({ message: 'Falha na validação dos campos' });
+
       const { email, oldPassword } = req.body;
       const user = await User.findByPk(req.userId);
       if (!user) {
