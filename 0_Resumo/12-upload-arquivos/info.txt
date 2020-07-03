@@ -6,3 +6,19 @@ Formas:
 
   Instalar a lib:
     yarn add multer
+
+1 - Criar o Controller e Model
+
+2 - Criar a tabela no BD:
+  yarn sequelize migration:create --name=create-files
+
+3 - Configurar os campos no arquivo criado e depois efetivar a criação da tabela no DB
+  yarn sequelize db:migrate
+
+4 - Criar o relacionametno User X files
+  yarn sequelize migration:create --name=add-avatar-files-to-user
+
+  yarn sequelize db:migrate
+
+5 - Explicação do belongsTo, hasMany, hasOne na aula: 
+  Fase 02 - Dominando Node.js!\08 - Continuando API do GoBarber\02 - Avatar do usuário 11:00
