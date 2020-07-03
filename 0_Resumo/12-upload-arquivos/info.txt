@@ -1,0 +1,8 @@
+Uma das forma de fazer upload de imagem ou arquivos é usar a lib multer;
+
+Formas:
+  1 - Enviar a imagem junto com os outros dados do usuário no ato do cadastro.
+  2 - Upload de arquivos isolados;
+
+  Instalar a lib:
+    yarn add multer
