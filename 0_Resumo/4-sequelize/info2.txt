@@ -25,3 +25,12 @@ src
 5 - Criar a tabela no DB:
   yarn sequelize db:migrate
 
+6 - Seeds
+
+  yarn sequelize seed:generate --name demo-user
+
+  yarn sequelize db:seed
+
+  yarn sequelize-cli db:seed:all
+
+

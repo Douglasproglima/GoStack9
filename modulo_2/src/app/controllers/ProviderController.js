@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import User from '../models/User';
 import File from '../models/File';
 
-class UserController {
+class ProviderController {
   async store(req, res) {
     try {
       const schema = Yup.object().shape({
@@ -37,19 +37,20 @@ class UserController {
 
   async index(req, res) {
     try {
-      const users = await User.findAll({
-        attributes: ['id', 'name', 'email', 'avatar_id'],
+      const provider = await User.findAll({
+        where: { provider: true },
+        attributes: ['id', 'name', 'email'],
         include: [
           {
             model: File,
             as: 'Avatar',
-            attributes: ['id', 'name', 'path'],
-            order: [['id', 'DESC']],
+            attributes: ['id', 'name', 'path', 'url'],
           },
         ],
         order: [['id', 'DESC']],
       });
-      return res.json(users);
+
+      return res.json(provider);
     } catch (err) {
       return res.status(400).json({
         errors: err,
@@ -60,23 +61,13 @@ class UserController {
 
   async show(req, res) {
     try {
-      const user = await User.findAll({
-        where: { id: req.params.id },
-        attributes: ['id', 'name', 'email'],
-        include: [
-          {
-            model: File,
-            as: 'Avatar',
-            attributes: ['id', 'name', 'path'],
-            order: [['id', 'DESC']],
-          },
-        ],
-        order: [['id', 'DESC']],
-      });
+      const provider = await User.findByPk(req.params.id);
+      if (!provider)
+        return res.status(400).json({ message: 'Provider not exists.' });
 
-      if (!user) return res.status(400).json({ message: 'User not exists.' });
+      const { id, name, email } = provider;
 
-      return res.json(user);
+      return res.json({ id, name, email });
     } catch (err) {
       return res.status(400).json({
         errors: err,
@@ -156,4 +147,4 @@ class UserController {
   }
 }
 
-export default new UserController();
+export default new ProviderController();
