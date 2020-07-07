@@ -43,7 +43,7 @@ class UserController {
           {
             model: File,
             as: 'Avatar',
-            attributes: ['id', 'path', 'url'],
+            attributes: ['id', 'name', 'path', 'url'],
             order: [['id', 'DESC']],
           },
         ],
@@ -52,7 +52,7 @@ class UserController {
       return res.json(users);
     } catch (err) {
       return res.status(400).json({
-        errors: err,
+        message: `Erro aor realizar consulta: ${err}`,
         // errors: err.errors.map((erro) => erro.message),
       });
     }
