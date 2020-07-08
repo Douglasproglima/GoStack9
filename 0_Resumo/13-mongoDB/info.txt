@@ -1,0 +1,9 @@
+Powershell:
+  1 - Criar container mongo:
+    docker run --name mongobarber -p 27017:27017 -d -t mongo
+
+  2 - Instalar lib mongose:
+    yarn add mongoose
+
+  3 - src/database/index.js, criar o seguinte método após o init() {...}
+    mongo() {}

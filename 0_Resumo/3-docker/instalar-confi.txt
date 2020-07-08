@@ -12,6 +12,9 @@ Exemplo:
 
     docker run --name db_postgres -e POSTGRES_PASSWORD=123456 -p 5432:5432 -d postgres:13
 
+    Mongo:
+     docker run --name mongobarber -p 27017:27017 -d -t mongo
+
 3 - Instalar postbird para ver os dados do postgres:
   https://www.electronjs.org/apps/postbird
 

@@ -1,4 +1,5 @@
 import Sequelize from 'sequelize';
+import mongoose from 'mongoose';
 
 /* Models */
 import User from '../app/models/User';
@@ -12,6 +13,7 @@ const models = [User, File, Appointment];
 class Database {
   constructor() {
     this.init();
+    this.mongo();
   }
 
   init() {
@@ -19,6 +21,16 @@ class Database {
 
     models.forEach((md) => md.init(connection));
     models.forEach((md) => md.associate && md.associate(connection.models));
+  }
+
+  mongo() {
+    this.mongoConnection = mongoose.connect(
+      'mongodb://localhost:27017/br_barber_api',
+      {
+        useNewUrlParser: true,
+        useFindAndModify: true,
+      }
+    );
   }
 }
 
