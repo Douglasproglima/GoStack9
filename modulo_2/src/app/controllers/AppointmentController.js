@@ -40,10 +40,24 @@ class AppointmentController {
           message: 'Não é permitido criar um agendamento no passado.',
         });
 
+      // Valida se um agendamento está disponivel no mesmo horario para o agendamento atual
+      const checkAvailability = await Appointment.findOne({
+        where: {
+          provider_id,
+          canceled_at: null,
+          date: hourStart,
+        },
+      });
+
+      if (checkAvailability)
+        return res
+          .status(400)
+          .json({ message: 'Este horário já está agendado.' });
+
       const appointment = await Appointment.create({
         user_id: req.userId,
         provider_id,
-        date,
+        date: hourStart,
       });
 
       /* Notificação ao Prestador de Serviço */
@@ -63,7 +77,7 @@ class AppointmentController {
       return res.json(appointment);
     } catch (err) {
       return res.status(400).json({
-        errors: err,
+        message: `Erro ao realizar agendamento: ${err}`,
         // errors: err.errors.map((erro) => erro.message),
       });
     }
@@ -77,7 +91,6 @@ class AppointmentController {
         attributes: ['id', 'date'],
         limit: 20,
         offset: (page - 1) * 20,
-        order: [['id', 'DESC']],
         include: [
           {
             model: User,
@@ -94,7 +107,9 @@ class AppointmentController {
             ],
           },
         ],
+        order: [['id', 'DESC']],
       });
+
       return res.json(appointments);
     } catch (err) {
       return res.status(400).json({
