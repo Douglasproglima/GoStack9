@@ -24,13 +24,16 @@ class Database {
   }
 
   mongo() {
-    this.mongoConnection = mongoose.connect(
-      'mongodb://localhost:27017/br_barber_api',
-      {
+    this.mongoConnection = mongoose
+      .connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
         useFindAndModify: true,
-      }
-    );
+        useUnifiedTopology: true,
+      })
+      .then(() => console.log('MongoDB Conectado!'))
+      .catch((err) => {
+        console.log(`Erro ao Conectar MongoDB: ${err.message}`);
+      });
   }
 }
 

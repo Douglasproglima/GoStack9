@@ -24,8 +24,8 @@ class ScheduleController {
         date: {
           [Op.between]: [endOfDay(parsedDate), startOfDay(parsedDate)],
         },
+        order: ['date'],
       },
-      order: ['date'],
     });
 
     return res.json(appointments);
