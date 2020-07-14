@@ -1,0 +1,14 @@
+1 - Nodemailer: Lib para envio de e-mail
+  yarn add nodemailer
+
+2 - Criar um arquivo na pasta src/config/mail.js
+
+3 - SMTP's disponiveis:
+  Amazon SES
+  Mailgun
+  Mandril(Mailchimp)
+  Sparkpost
+  Gmail
+
+  Ambiente Dev:
+    Mailtrap -> https://mailtrap.io/
