@@ -1,0 +1,3 @@
+1 - Template Engine: São HTML que recebem variáveis em nodejs
+  Template de e-mail usado: https://handlebarsjs.com/
+    yarn add express-handlebars nodemailer-express-handlebars
