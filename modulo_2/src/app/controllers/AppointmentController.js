@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { startOfHour, parseISO, isBefore, format } from 'date-fns';
+import { startOfHour, parseISO, isBefore, format, subHours } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import User from '../models/User';
 import File from '../models/File';
@@ -117,6 +117,29 @@ class AppointmentController {
         // errors: err.errors.map((erro) => erro.message),
       });
     }
+  }
+
+  async delete(req, res) {
+    const appointment = await Appointment.findByPk(req.params.id);
+    if (appointment.user_id !== req.userId) {
+      return res.status(401).json({
+        message: 'Você não tem permissão para cancelar este agendamento.',
+      });
+    }
+
+    const dateWithSub = subHours(appointment.date, 2); // remove duas do agendamento
+    // Subtrai duas horas da data atual
+    if (isBefore(dateWithSub, new Date())) {
+      return res.status(401).json({
+        message:
+          'Você não pode realizar o cancelamento do agendamento pois falta menos de horas com relação a data agendada.',
+      });
+    }
+
+    appointment.canceled_at = new Date();
+    await appointment.save();
+
+    return res.json(appointment);
   }
 }
 
