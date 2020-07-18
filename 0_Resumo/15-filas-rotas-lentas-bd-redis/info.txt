@@ -1,0 +1,36 @@
+Motivo: 
+        Controlar ações que não irão finalizar no mesmo momento que será retornado a 
+        resposta para o cliente final, nesse o ideial é usar 'Filas ou Backgroud Job'.
+
+        Para isso configurar esses Backgroud Jobs é necessário um BD de chave e valor,
+        onde será usado o BD noSQL Redis.
+
+        Redis: Diferença do Mongodb para o redis é que o redis não possui Schemas ou estrutura de dados.
+               Apenas salva chave e valor.
+
+1 - Redis: Banco não relacional
+  Imagem Docker:
+    Estrutu do comando Docker:
+    docker run --name NOME_BD -p PORTA:REDIRECIONA-PARA-PORTA -d <datasheet mode> -t <nome da imagem>
+
+    alpine: É a versão que contém as features mais leves do Linux, somente o essencial
+
+    docker run --name redis_br_barber -p 6379:6397 -d -t redis:alpine
+
+    Ver as imagens baixadas, no terminal digite:
+      docker ps
+
+    Ver todas as imagems:
+      docker ps -a
+
+    Ver log de erro: docker logs <CONTAINER ID>
+
+  2 - Bee queue:  yarn add install bee-queue
+  
+    Ferramenta para controlar as filas dentro do Nodejs.
+    Entretanto, o Bee queue não tem todas as funcionalidades de filas que outros sistemas possuem.
+    Por exemplo: 
+      *Se precisar controlar prioridade entre os jobs, o bee queue não irá antender
+      *Se precisar desse tipo de ferramenta, usar o Kue: 
+        Site: https://automattic.github.io/kue/
+        Tutorial 1: https://blog.rocketseat.com.br/fila-de-processamento-com-redis/

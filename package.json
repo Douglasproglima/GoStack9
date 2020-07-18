@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "bee-queue": "^1.2.3",
     "express-handlebars": "^5.0.0",
+    "install": "^0.13.0",
     "nodemailer-express-handlebars": "^4.0.0"
   }
 }
