@@ -1,0 +1,32 @@
+Ferramentas para monitoramento de erros
+  1 - Sentry cria a conta, projeto express:
+    https://sentry.io/welcome/
+
+  2 - Instalar:
+    yarn add @sentry/node@5.19.2
+
+  2.1 - Criar o arquivo de configuração em src/app/config/sentry.js
+
+  3 - Acessar o arquivo src/app.js e src/app/config/sentry.js
+    import * as Sentry from '@sentry/node';
+    import sentryConfig from './config/sentry';
+
+    No construtor add:
+      Sentry.init(sentryConfig);
+
+    no método middlewares() add:
+      this.server.use(Sentry.Handlers.requestHandler());
+
+    No método routes add:
+      this.server.use(Sentry.Handlers.errorHandler());
+
+  4 - Instalar essa extensão para capturar os erros async nas requisições:
+    yarn add express-async-errors
+
+  5 - Importa a nova extensão dentro do arquivo src/app.js e criar os métodos
+    import 'express-async-errors';
+
+  6 - Instalar youch para melhorar a exebição das msgs de erros para o cliente
+    yarn add youch
+
+  
