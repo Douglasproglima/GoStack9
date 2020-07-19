@@ -1,0 +1,17 @@
+1 - Criar o arquivo package.json
+yarn init
+
+2 - instalar dependências básicas de DevDependecies
+  yarn add @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli -d
+
+3 - Instalar react e react-DOM
+  yarn add react react-dom
+  
+4 - Criar o arquivo babel.config.js e realize a configuração do babel para JS e react
+
+5 - Criar o arquivo webpack.config.js
+
+6 - Criar a pasta src que conterá todo o code JS e também o arquivo index.js
+
+7 - Instalar o babel-loader:
+  yarn add babel-loader -D
