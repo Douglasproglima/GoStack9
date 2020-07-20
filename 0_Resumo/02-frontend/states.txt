@@ -1,0 +1,7 @@
+Para usar criar o state de forma resumida quando usar class, será necessário instalar
+o plugin @babel/plugin-proposal-class-properties do contrário deve se criar o construtor e usar o state dentro.
+
+1 - Instalar o plugin 
+  yarn add @babel/plugin-proposal-class-properties -D
+
+2 - No file babel.config.js é necessário setar o plugin instalado

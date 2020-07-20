@@ -10,3 +10,10 @@ button:hover {
   background: #5c3cc5;
   color: #bb6a1e;
 }
+
+ul, li {
+  color: #5c3cc5;
+  padding: 5px;
+  margin: 5px;
+  text-align: justify;
+}
