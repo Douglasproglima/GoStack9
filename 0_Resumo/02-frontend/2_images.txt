@@ -1,0 +1,5 @@
+Para importar imagens
+1 - instalar o file-loader
+  yarn add file-loader -d
+
+2 - No file webpack config add a regra de imagens

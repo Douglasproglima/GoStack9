@@ -1,0 +1,6 @@
+Para add css é necessário add os loaders de css dentro do webpack
+
+1 - Instalar o style-loader e css-loader
+  yarn add style-loader css-loader -D
+
+2 - add as rules de css no file webpack.config.js
