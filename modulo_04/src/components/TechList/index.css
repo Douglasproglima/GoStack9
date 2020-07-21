@@ -1,19 +1,103 @@
-button {
-  background: #7159c1;
-  color: #f3f1f7;
-  font-size: 16px;
-  padding: 10px 10px;
-  margin-top: 5px;
+.main{
+  max-width: 640px;
+  margin: 50px auto;
+  padding: 1.5rem;
+  border-radius: 15px;
+  background: #323a46;
+  box-sizing: border-box;
+  box-shadow: 0em 0rem 1.8rem #7268ac8c;
+  border: 3px solid var(--indigo-houver)
 }
 
-button:hover {
-  background: #5c3cc5;
-  color: #bb6a1e;
+button {
+  /* display: block; */
+  width: 10%;
+  height: 43px;
+  margin-top: 10px;
 }
+
+form input, form label {
+  /* display: block; */
+  width: 80%;
+  height: 40px;
+  margin-top: 10px;
+}
+
+form input {
+  font-size: 18px;
+  height: 40px;
+  padding: 0 20px;
+  color: #323a46
+}
+
+form input:focus {
+  outline: 3px solid var(--white);
+}
+
+form button {
+  border: none;
+  background-image: linear-gradient(to right, #5C258D 0%, #4389A2 51%, #5C258D 100%);
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 700;
+  height: 43px;
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+form button:hover {
+  background: var(--indigo-houver);
+  background-position: right center;
+}
+
+form button:active {
+  background: var(--indigo-active);
+}
+
 
 ul, li {
-  color: #5c3cc5;
-  padding: 5px;
-  margin: 5px;
+  font-size: 18px;
+  color: #f3964a;
+  padding: 3px;
+  margin: 10px;
   text-align: justify;
+}
+
+
+.tasks {
+  margin-top: 2px;
+  padding-left: 0px;
+}
+
+.tasks li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  transition: all 600ms;
+}
+
+.tasks li:hover {
+  background: var(--indigo-houver);
+}
+
+.tasks li .edit {
+  margin-right: 5px;
+  color: var(--success);
+}
+
+.tasks li .delete {
+  margin-right: 5px;
+  color: var(--danger);
+}
+
+.tasks li .edit,
+.tasks li .delete {
+  cursor: pointer;
+  transition: all 600ms;
+}
+
+.tasks li span {
+  display: flex;
+  align-items: center;
 }

@@ -12,19 +12,50 @@ export default class TechList extends Component {
   //Todo component escrito no formato class precisa ter um método render()
   
   state = {
+    newTech: '',
     techs: [
       'Nodejs',
       'ReactJs',
       'React Native'
     ]
   };
+
+  handgleInputChange = e => {
+    console.log(e.target.value);
+    this.setState({ newTech: e.target.value});
+  }
+
+  handgleSumit = e => {
+    e.preventDefault();
+
+    this.setState({ 
+      techs: [...this.state.techs, this.state.newTech], 
+      newTech: ''
+    });
+  }
+
   render() {
     return (
-      <ul>
-        {this.state.techs.map((tech, index) => (
-          <li key={index}>{tech}</li>
-        ))}
-      </ul>
+      <div className="main">
+        <h2>Softskills 2020</h2>
+        <hr></hr>
+        <form onSubmit={this.handgleSumit}>
+        <input 
+            type="text" 
+            placeholder="Informe a Nova Skill" 
+            onChange={this.handgleInputChange} 
+            value={this.state.newTech} 
+          />
+          <button type="submit">OK</button>
+          <hr></hr>
+          <ul className="tasks">
+            {this.state.techs.map((tech, index) => (
+              <li key={index}>{tech}</li>
+            ))}
+          </ul>
+
+        </form>
+      </div>
     );
   }
 }
