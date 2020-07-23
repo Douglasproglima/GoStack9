@@ -1,0 +1,18 @@
+ul, li {
+  font-size: 18px;
+  color: #f3964a;
+  padding: 3px;
+  margin: 10px;
+  text-align: justify;
+}
+
+button {
+  border: none;
+  background-image: linear-gradient(to right, #5C258D 0%, #4389A2 51%, #5C258D 100%);
+  color: var(--danger);
+  font-size: 18px;
+  font-weight: 700;
+  height: 0px;
+  cursor: pointer;
+  margin-top: 15px;
+}

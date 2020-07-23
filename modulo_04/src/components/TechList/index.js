@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TechItem from '../TechItem';
 import './index.css';
 
 /* Criar components com functions 
@@ -13,6 +14,7 @@ export default class TechList extends Component {
   
   state = {
     newTech: '',
+    //techs: []
     techs: [
       'Nodejs',
       'ReactJs',
@@ -43,14 +45,6 @@ export default class TechList extends Component {
         <form className='main' onSubmit={this.handgleSumit}>
           <h2>Softskills 2020</h2>
           <hr></hr>
-          <ul className="tasks">
-            {this.state.techs.map((tech) => (
-              <li key={tech}>
-                {tech}
-                <button className="btnRemove" onClick={() => this.handleDelete(tech)} type="button">X</button>
-              </li>
-            ))}
-          </ul>
           <input 
               type="text" 
               placeholder="Informe a Nova Skill" 
@@ -58,9 +52,13 @@ export default class TechList extends Component {
               value={this.state.newTech} 
             />
           <button type="submit">OK</button>
-          
           <hr></hr>
           
+          <ul className="tasks">
+            {this.state.techs.map((tech) => (
+              <TechItem key={tech} tech={tech} onDelete={() => this.handleDelete(tech)} ></TechItem>
+            ))}
+          </ul>
         </form>
     );
   }
