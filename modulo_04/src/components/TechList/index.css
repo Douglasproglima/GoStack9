@@ -9,11 +9,16 @@
   border: 3px solid var(--indigo-houver)
 }
 
-button {
-  /* display: block; */
-  width: 10%;
-  height: 43px;
-  margin-top: 10px;
+
+.btnRemove {
+  border: none;
+  background-image: linear-gradient(to right, #5C258D 0%, #4389A2 51%, #5C258D 100%);
+  color: var(--danger);
+  font-size: 18px;
+  font-weight: 700;
+  height: 20px;
+  cursor: pointer;
+  margin-top: 25px;
 }
 
 form input, form label {
@@ -26,7 +31,7 @@ form input, form label {
 form input {
   font-size: 18px;
   height: 40px;
-  padding: 0 20px;
+  padding: 0 10px;
   color: #323a46
 }
 
