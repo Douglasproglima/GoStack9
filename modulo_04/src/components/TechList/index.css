@@ -11,20 +11,20 @@
 
 form input, form label {
   /* display: block; */
-  width: 80%;
-  height: 40px;
+  width: 90%;
+  height: 35px;
   margin-top: 10px;
 }
 
 form input {
   font-size: 18px;
-  height: 40px;
+  height: 35px;
   padding: 0 10px;
   color: #323a46
 }
 
 form input:focus {
-  outline: 3px solid var(--white);
+  outline: 1.5px solid #f3964a;
 }
 
 form button {
@@ -33,9 +33,9 @@ form button {
   color: var(--white);
   font-size: 18px;
   font-weight: 700;
-  height: 40px;
+  height: 35px;
   cursor: pointer;
-  margin-top: 25px;
+  margin-top: 3px;
 }
 
 form button:hover {

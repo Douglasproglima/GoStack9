@@ -2,7 +2,7 @@ ul, li {
   font-size: 18px;
   color: #f3964a;
   padding: 3px;
-  margin: 10px;
+  margin: 3px;
   text-align: justify;
 }
 
@@ -12,7 +12,7 @@ button {
   color: var(--danger);
   font-size: 18px;
   font-weight: 700;
-  height: 0px;
+  height: 10px;
   cursor: pointer;
   margin-top: 15px;
 }

@@ -10,11 +10,15 @@ export default function Button() {
 
 // Criar components com class
 export default class TechList extends Component {
-  //Todo component escrito no formato class precisa ter um método render()
   
+  //propriedades estaticas de class
+/*   static defaultProps = {
+    tech: 'Nenhum registro'
+  }; */
+
   state = {
     newTech: '',
-    //techs: []
+    /* techs: [] */
     techs: [
       'Nodejs',
       'ReactJs',
@@ -56,8 +60,14 @@ export default class TechList extends Component {
           
           <ul className="tasks">
             {this.state.techs.map((tech) => (
-              <TechItem key={tech} tech={tech} onDelete={() => this.handleDelete(tech)} ></TechItem>
+              <TechItem 
+                propriedade={ {user: {name: 'douglas', lastName: 'lima'}} } 
+                key={tech} 
+                tech={tech} 
+                onDelete={() => this.handleDelete(tech)} 
+              />
             ))}
+            <TechItem></TechItem>
           </ul>
         </form>
     );
