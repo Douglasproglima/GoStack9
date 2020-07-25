@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './index.css'
 
-function TechItem({tech, onDelete}) {
+function TechItem({tech = 'Nenhum Registro', onDelete}) {
   return (
     <li>
       {tech}
@@ -13,9 +13,11 @@ function TechItem({tech, onDelete}) {
   );
 }
 
+/*
 TechItem.defaultProps = {
   tech: 'Nenhum Registro',
 }
+*/
 
 TechItem.protoTypes = {
   tech: PropTypes.string,
