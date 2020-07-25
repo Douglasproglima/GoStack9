@@ -40,7 +40,6 @@ export default class TechList extends Component {
   componentWillMount() {}
 
   handleInputChange = e => {
-    console.log(e.target.value);
     this.setState({ newTech: e.target.value});
   }
 
@@ -60,7 +59,7 @@ export default class TechList extends Component {
   render() {
     return (
         <form className='main' onSubmit={this.handgleSumit}>
-          <h2>Softskills 2020</h2>
+          <h2>Softskills</h2>
           <hr></hr>
           <input 
               type="text" 
