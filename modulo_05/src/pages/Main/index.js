@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import { DiAtom } from 'react-icons/di';
 import { FaPlus, FaGithub, FaSpinner } from 'react-icons/fa';
 import api from '../../services/api';
-import { Container, Form, SumitButton } from './styles';
+import { Container, Form, SumitButton, List } from './styles';
 
 export default class Main extends Component {
   state = {
@@ -40,7 +40,7 @@ export default class Main extends Component {
   };
 
   render() {
-    const { newRepo, loading } = this.state;
+    const { newRepo, repositories, loading } = this.state;
 
     return (
       <Container>
@@ -65,6 +65,15 @@ export default class Main extends Component {
             )}
           </SumitButton>
         </Form>
+
+        <List>
+          {repositories.map(repository => (
+            <li key={repositories.name}>
+              <span>{repository.name}</span>
+              <a href="#">Detalhes</a>
+            </li>
+          ))}
+        </List>
       </Container>
     );
   }

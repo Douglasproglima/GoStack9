@@ -72,3 +72,26 @@ export const SumitButton = styled.button.attrs((props) => ({
       }
     `}
 `;
+
+export const List =  styled.ul`
+  list-style: 15px 0;
+  margin-top: 30px;
+
+  li {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #f3f3f3d9;
+
+    & + li {
+      border-top: 2px solid #7159c1b3;
+    }
+
+    a {
+      color: #f3f3f3d9;
+      text-decoration: none;
+    }
+  }
+`;
