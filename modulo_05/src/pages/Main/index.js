@@ -11,6 +11,20 @@ export default class Main extends Component {
     loading: false,
   };
 
+  // Executa assim que o componente aparece na tela
+  componentDidMount() {
+    const repositories = localStorage.getItem('Repositorios');
+    if(repositories)
+      this.setState({repositories: JSON.parse(repositories)});
+  }
+
+// Executar sempre que houver alterações nas props ou estado
+  componentDidUpdate(prevProps, prevState) {
+    // this.prorps ou this.state
+    if(prevState.repositories !== this.state.repositories)
+      localStorage.setItem('Repositorios', JSON.stringify(this.state.repositories));
+  }
+
   handleInputChange = (e) => {
     this.setState({ newRepo: e.target.value });
   };
