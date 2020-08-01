@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FaPlus, FaGithub, FaSpinner } from 'react-icons/fa';
 import api from '../../services/api';
-import { Container, Form, SumitButton, List } from './styles';
+import Container from '../../components/Container';
+import { Form, SumitButton, List } from './styles';
 
 export default class Main extends Component {
   state = {

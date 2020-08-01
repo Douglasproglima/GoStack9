@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import api from '../../services/api';
+import Container from '../../components/Container';
+import { Loading, Owner } from './style';
 
 export default  class Repository extends Component {
+
+  //Defini duas propriedades, uma match e outra params, como a match
+  //é obrigatória params também será por estar dentro do escopo
+  static propTypes = {
+    match: PropTypes.shape({ //.shape: usado para definir uma propriedade do tipo Objeto
+      params: PropTypes.shape({
+        repository: PropTypes.string,
+      }),
+    }).isRequired,
+  }
 
   state = {
     repository: {},
@@ -33,7 +48,19 @@ export default  class Repository extends Component {
   }
 
   render(){
-    const {repository, issues} = this.state;
-    return <h1>Repositório: {this.repoName}</h1>;
+    const {repository, issues, loading} = this.state;
+    if(loading)
+      return <Loading>Carregando...</Loading>
+
+    return (
+      <Container>
+        <Owner>
+          <Link to="/">Voltar</Link>
+          <img src={repository.owner.avatar_url}></img>
+          <h1>{repository.name}</h1>
+          <p>{repository.description}</p>
+        </Owner>
+      </Container>
+    );
   };
 }
