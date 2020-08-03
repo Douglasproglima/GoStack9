@@ -63,6 +63,7 @@ export const List =  styled.ul`
     justify-content: space-between;
     align-items: center;
     color: #f3f3f3d9;
+    transition: all 600ms;
 
     & + li {
       border-top: 2px solid #7159c1b3;
@@ -72,5 +73,12 @@ export const List =  styled.ul`
       color: #f3f3f3d9;
       text-decoration: none;
     }
+
+
+  }
+
+  li:hover {
+    transition: all 600ms;
+    background-color: #7159c1b3;
   }
 `;

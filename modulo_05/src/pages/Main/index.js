@@ -61,7 +61,7 @@ export default class Main extends Component {
       <Container>
         <h1>
           <FaGithub size={21} />
-          Personagens
+          Repositórios
         </h1>
 
         <Form onSubmit={this.handleSubmit}>
