@@ -1,0 +1,38 @@
+1 - npx react-native init NomeApp
+
+2 - No terminal acessar a pasta NomeApp e rodar
+  react-native run-android
+
+3 - Configurar Eslint e Prettier para padronizar o código
+  deletar o arquivo .eslintrc.js
+
+  yarn eslint --init
+
+  Instalar as outras dependencias:
+    yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D
+    ou
+
+  Obs: 
+  Tutorial atualizado 2020
+  
+  Javascript:
+  http://abneroliveira.eti.br/configurar-eslint-e-o-prettier-no-seu-projeto-node-reactjs-e-react-native/
+
+  ou
+
+  Typescript:
+  https://dev-yakuza.github.io/en/react-native/eslint-prettier-husky-lint-staged/
+
+4 - Dicas de erros
+  Caso tenha realizado várias alterações, e o app comece apresentar erros incomuns
+  Tente rodar:
+
+  react-native start --reset-cache
+
+  Obs: Uma vez rodado o comando react-native run-android não necessidade de
+  gerar o metro bundle novamente, basta executar: 
+    npx start
+  ou 
+    npm start 
+  ou 
+    yarn start
