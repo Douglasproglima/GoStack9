@@ -1,0 +1,27 @@
+Reactotron: Lib para debugar aplicação em React Native:
+https://github.com/infinitered/reactotron/blob/master/docs/quick-start-react-native.md
+
+1 - Baixar o instalar sem ser Beta:
+https://github.com/infinitered/reactotron/releases
+
+2 - Instalar a Lib no projeto:
+npm i --save-dev reactotron-react-native
+ou
+yarn add reactotron-react-native
+
+2.2 - criar a pasta/arquivo src/index.js 
+      Mover o conteudo o arquivo App.js
+      Altera o import do arquivo index.js da raiz do projeto
+      Criar o arquivo ReactotronConfig.js
+
+Se estiver usando emulador e não mostrar nenhuma conexão no app ReactoTron.exe
+deve redirecionar a porta:
+
+Acesse o powershell em modo admin e navegue até o diretório onde está o SDK
+e rode o comando:
+
+Acessar a pasta:
+	cd C:\Users\douglasproglima\AppData\Local\Android\Sdk\platform-tools\
+
+Alterar a porta:
+	adb reverse tcp:9090 tcp:9090

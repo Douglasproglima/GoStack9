@@ -7,7 +7,7 @@ import {
 	Text,
 	StatusBar,
 } from 'react-native';
-
+import './config/ReactotronConfig';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 export default function App() {
@@ -31,6 +31,8 @@ export default function App() {
 		</>
 	);
 }
+
+console.tron.log('Hello World');
 
 const styles = StyleSheet.create({
 	scrollView: {
