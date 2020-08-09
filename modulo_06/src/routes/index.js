@@ -7,6 +7,7 @@ import Main from '../pages/Main';
 import User from '../pages/User';
 
 const Stack = createStackNavigator();
+
 export default function Routes() {
 	return (
 		<NavigationContainer>
@@ -15,19 +16,20 @@ export default function Routes() {
 				screenOptions={{
 					// animationEnabled: true,
 					// headerMode: true,
-					// headerLayoutPreset: 'center',
 					// headerTitleAllowFontScaling: true,
-					gestureEnabled: false,
+					headerMode: 'none',
+					headerLayoutPreset: 'center',
+					gestureEnabled: true,
 					headerTitleAlign: 'center',
 					headerBackTitle: false,
 					headerStyle: {
-						height: 80,
+						height: 60,
 						backgroundColor: '#7159c1',
 					},
 					headerTintColor: '#fff',
 				}}>
+				<Stack.Screen name="Home" component={Main} />
 				<Stack.Screen name="User" component={User} />
-				<Stack.Screen name="Main" component={Main} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
