@@ -7,7 +7,7 @@ export default function App() {
 	// console.tron.log('Hello World');
 	return (
 		<>
-			<StatusBar barStyle="light-content" backgroundColor="#7159c1" />
+			<StatusBar barStyle="light-content" backgroundColor="#f47b00" />
 			<Routes />
 		</>
 	);

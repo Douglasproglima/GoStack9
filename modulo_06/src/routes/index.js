@@ -24,7 +24,7 @@ export default function Routes() {
 					headerBackTitle: false,
 					headerStyle: {
 						height: 60,
-						backgroundColor: '#7159c1',
+						backgroundColor: '#f47b00',
 					},
 					headerTintColor: '#fff',
 				}}>
