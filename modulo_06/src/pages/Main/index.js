@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Keyboard, ActivityIndicator} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
 	Container,
@@ -22,6 +23,19 @@ export default class Main extends Component {
 		users: [],
 		loading: false,
 	};
+
+	// Busca os Dados do LocalStorage
+	async componentDidMount() {
+		const users = await AsyncStorage.getItem('users');
+		if (users) this.setState({users: JSON.parse(users)});
+	}
+
+	// Atualiza o LocalStorage quando houver alteração no user
+	async componentDidUpdate(prevProps, prevState) {
+		const {users} = this.state;
+		if (prevState.users !== users)
+			await AsyncStorage.setItem('users', JSON.stringify(users));
+	}
 
 	handleAddUser = async () => {
 		// alert(this.state.newUser);
@@ -55,7 +69,7 @@ export default class Main extends Component {
 					<Input
 						autoCorrect={false}
 						autoCapitalize="none"
-						placeholder="Adicionar Usuário"
+						placeholder="Pesquisar Usuário"
 						value={newUser}
 						onChangeText={(text) => this.setState({newUser: text})}
 						returnKeyType="send"

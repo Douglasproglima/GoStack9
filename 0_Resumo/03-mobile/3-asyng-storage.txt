@@ -1,0 +1,3 @@
+Async Storage: Para armazenar dados no BD do celular
+
+yarn add @react-native-community/async-storage
