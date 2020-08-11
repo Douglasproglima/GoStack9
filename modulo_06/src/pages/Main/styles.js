@@ -12,7 +12,6 @@ export const Form = styled.View`
 	padding-bottom: 15px;
 	border-bottom-width: 1px;
 	border-color: #eeeeee;
-	/* border-color: #eee; */
 `;
 
 export const Input = styled.TextInput.attrs({

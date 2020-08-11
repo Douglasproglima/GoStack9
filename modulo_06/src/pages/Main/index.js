@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {Keyboard, ActivityIndicator} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+// import LinearGradient from 'react-native-linear-gradient';
 import {
 	Container,
 	Form,
@@ -16,8 +18,19 @@ import {
 	ProfileButtonText,
 } from './styles';
 import api from '../../services/api';
+import '../../config/ReactotronConfig';
 
 export default class Main extends Component {
+	static navigationOptions = {
+		title: 'Usuários',
+	};
+
+	static propTypes = {
+		navigation: PropTypes.shape({
+			navigate: PropTypes.func,
+		}).isRequired,
+	};
+
 	state = {
 		newUser: '',
 		users: [],
@@ -26,6 +39,7 @@ export default class Main extends Component {
 
 	// Busca os Dados do LocalStorage
 	async componentDidMount() {
+		// console.tron.log(this.props);
 		const users = await AsyncStorage.getItem('users');
 		if (users) this.setState({users: JSON.parse(users)});
 	}
@@ -38,7 +52,6 @@ export default class Main extends Component {
 	}
 
 	handleAddUser = async () => {
-		// alert(this.state.newUser);
 		const {users, newUser} = this.state;
 
 		this.setState({loading: true});
@@ -51,6 +64,7 @@ export default class Main extends Component {
 			avatar: response.data.avatar_url,
 		};
 
+		// console.warn(data);
 		this.setState({
 			users: [...users, data],
 			newUser: '',
@@ -60,11 +74,18 @@ export default class Main extends Component {
 		Keyboard.dismiss();
 	};
 
+	handleNavigation = (user) => {
+		const {navigation} = this.props;
+		console.tron.log(navigation.navigate);
+		navigation.navigate('User', {user});
+	};
+
 	render() {
 		const {users, newUser, loading} = this.state;
 
 		return (
 			<Container>
+				{/* <LinearGradient colors={['#000a12', '#4f5b62', '#263238']}> */}
 				<Form>
 					<Input
 						autoCorrect={false}
@@ -79,11 +100,10 @@ export default class Main extends Component {
 						{loading ? (
 							<ActivityIndicator color="#ffffff" />
 						) : (
-							<Icon name="add" size={20} color="#fff" />
+							<Icon name="search" size={25} color="#ffffff" />
 						)}
 					</SubmitButton>
 				</Form>
-
 				<List
 					data={users}
 					keyExtractor={(user) => user.login}
@@ -92,17 +112,14 @@ export default class Main extends Component {
 							<Avatar source={{uri: item.avatar}} />
 							<Name>{item.name}</Name>
 							<Bio>{item.bio}</Bio>
-							<ProfileButton onPress={() => {}}>
+							<ProfileButton onPress={() => this.handleNavigation(item)}>
 								<ProfileButtonText>Ver Perfil</ProfileButtonText>
 							</ProfileButton>
 						</User>
 					)}
 				/>
+				{/* </LinearGradient> */}
 			</Container>
 		);
 	}
 }
-
-Main.navigationOptions = {
-	title: 'Usuários',
-};

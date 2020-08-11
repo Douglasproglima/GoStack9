@@ -1,7 +1,7 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
-import './config/ReactotronConfig';
 import Routes from './routes';
+import './config/ReactotronConfig';
 
 export default function App() {
 	// console.tron.log('Hello World');
