@@ -6,7 +6,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes />
-      <GlobalStyle></GlobalStyle>
+      <GlobalStyle />
     </BrowserRouter>
   );
 }
