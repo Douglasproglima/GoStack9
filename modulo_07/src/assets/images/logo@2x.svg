@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 554 72" width="554" height="72">
+	<defs>
+		<image width="103" height="72" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGcAAABICAMAAADcZRsoAAAAAXNSR0IB2cksfwAAAEhQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////53h4sAAAABh0Uk5TABBwn68gMO//31C/YIDPoI9Afx9vkF+wpe97GgAABDBJREFUeJy1We2CoyAMLCJVCmjprXfv/6ZnEkBARXFrfmz9JJDMTIL7eGwba3jbiJ2b37Nn188mXze7Eehmtue9fvjsQqn5T3dr6PTswTweZv4Z2H1uhJxTAwfj7Oh9nx+ImoUDNjvsb8OCheTQIeDhthTBIqQ7bhaf37YP4LnzZ+180tzhRhBxPMzYXZGT5OePP3/dE7mfedjJ4w1N3RE5pA7ESi+XQIP+ftkPUEdD7MxyDTDXf77qBgSHI8h4dBX0p+cRGJh+c/6LqoFRE6g3/+Lr6KjnPmc/Ts35VU/vnhIzjzskNxoaWbYw8qf3Jq+VDaBOCwd6EQR/a6SRB4pt36kBfy45mjwlgTP5TYueJAa1A5wLdZVZyqflGRM1GHtNkJEZfh2pxXiNWXbwI4hixVYejdc0idILcMPKsF9HLcmFaBWgo5NDlSvtMNRp1DhZeHTEvEwBdqbwbG5AnY6jiGIDogvPQrwaR6r+4NncSHDCy0PxYQOJZNoY03oqnDTbu+RaXFJ30OVI359gB2HLD2cvSkqngCn277IjGwAJR4MQJ7svHUfZBNztmyKKvqQri/Kcoylh9hNfLjJQUIkaAhbOdV9T1Hk8vJoV5djgGlRQ1HMcsvmj5kiOGdZC8dJa10ABe/Y4UkIeVFGYmlgmeRIINKyKa+aYX1lPzeV0qtEElJFkSVjc9rdawoWLNfBqx/lJWSCGxlk6iN1E4Vowd7LoMVLGeNyphCWQORMayxpdoAXE2qYxdjsRabD8vJRC5a2SbZOvn1zvbLZUEFFT6QeqflZ6CjJkQ7CATpWl1c65/ZGRGCARu00ZmkJBjDZnFZYmRSCk+AYVAQqf4LJ+iykzfduNHfTeEhtVJs+rQjAS0mhJdo9KxB75Edj01W/ONUE8LAG7wg0JF8bxR+nhPFXjAcaMtbsSbsfA1LP1ITGdCdFzV4aYri1E6evU/YReQRQkXIxef67sVkgNZNY67MD35eM36HpXJp1jWcKF9uKtdDXEVbIkKn/7WXgu8ato69B0WmubkoSD2dHtK4FViwWoBMvZlkG8KOFuan5QFeZjV2429iQpxFmx/LnJaBe/ji+KntnGnsTVWg9xLH/bEr5Y4K9ET8LmtgmVFOJ0tiXhyex8/Ko+p6QQP9OFPzx/j/Yf2TtDvCR91El6011lTc9U3JW/Y+5PR/u2taUQP+zC3ex69znCtqpkCScdxGnw16nYBT9LS7lt6ZKmCA9elYpr4r5FWUtCkU8JxE35XWf0rDBFW2c6hvhzTfT1TK9+QSOsOUXQB/Go+8KQWSJ5bKUpZA1lvpI92ZII4u/dkLCG1nmkg4dGS+q2ChqzjXJVKO0n2IdzjnNj+rQZ/28v1fLY2gUaKpsEkQI29/wYPmetMytekR9gSvslJ2raahDYBAsG908lf2lDy5u8iP0HRdlJ8GQWDI4AAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.txt0 { font-size: 54px;fill: #ffffff;font-weight: 700;font-family: "Roboto-Bold", "Roboto" }
+	</style>
+	<use id="Background" href="#img1" x="449" y="0" />
+	<text id="Text layer 1" style="transform: matrix(1,0,0,1,0,64.8)" >
+		<tspan x="0" y="0" class="txt0">PROGLIMASHOES</tspan>
+	</text>
+</svg>
