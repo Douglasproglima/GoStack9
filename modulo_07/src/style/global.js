@@ -10,11 +10,11 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html, body, #root  {
+  #root  {
+    max-width: 1600px;
     margin: 0 auto;
-    ${'' /* max-width: 1020px; */}
-    ${'' /* padding: 0 20px 50px; */}
-    min-height: 100%;
+    padding: 0 20px 50px;
+    ${'' /* min-height: 100%; */}
   }
 
   body {
