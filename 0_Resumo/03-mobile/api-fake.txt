@@ -1,0 +1,15 @@
+Para criar um server que retorna recursos de uma API fake, basta usar o json-server:
+
+https://github.com/typicode/json-server
+
+npm install -g json-server
+ou
+yarn global add json-server
+
+Vídeo como criar um json server:
+https://egghead.io/lessons/javascript-creating-demo-apis-with-json-server
+
+depois de configurar a API, no terminal levante o servidor fake:
+json-server server.json -p 3333 -w
+
+json-server nome-arquivo.json -p PORTA -w assistir o arquivo caso queira
