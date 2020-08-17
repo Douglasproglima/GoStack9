@@ -1,6 +1,6 @@
 yarn add redux react-redux 
 
-No App.js deve se importar o Provider do react-redux;
+1 - No App.js deve se importar o Provider do react-redux;
 Esse Provider irá deixar disponivel o store(estado global) da aplicação para todos os componentes
 
 <Provider store={store}>
@@ -8,3 +8,7 @@ Esse Provider irá deixar disponivel o store(estado global) da aplicação para 
   <Component2></Component2>
   <Component3></Component3>
 </Provider>
+
+2 - Action: É uma objeto que contém um TYPE e o restante do conteúdo que for necessário.
+Seu objetivo princial de uma action é quando o usuário quiser fazer uma alteração do estado
+será necessário disparar uma Action.

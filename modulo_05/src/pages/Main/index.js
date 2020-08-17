@@ -51,7 +51,7 @@ export default class Main extends Component {
       newRepo: '',
       loading: false,
     });
-    console.log(info);
+    //info);
   };
 
   render() {

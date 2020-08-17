@@ -51,7 +51,7 @@ export default class Home extends Component {
       newRepo: '',
       loading: false,
     });
-    console.log(info);
+    //console.log(info);
   };
 
   render() {

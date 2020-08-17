@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaSpinner } from 'react-icons/fa';
 import { MdAddShoppingCart } from 'react-icons/md';
@@ -7,7 +8,7 @@ import api from '../../services/api';
 import Container from '../../components/Container';
 import { ProductList } from './styles';
 
-export default class Home extends Component {
+export class Home extends Component {
 
   state = {
     products: [],
@@ -23,11 +24,20 @@ export default class Home extends Component {
     this.setState({
       products: data
     });
-
   }
 
-  render() {
+  handleAddProduct = productparam => {
+    //this.props.dispatch: Dispara uma ação para o redux
+    const { dispatch } = this.props;
 
+    //Toda action necessita de um TYPE e o conteúdo
+    dispatch({
+      type: 'ADD_TO_CART',
+      productparam,
+    });
+  };
+
+  render() {
     const { products } = this.state;
 
     return (
@@ -43,9 +53,9 @@ export default class Home extends Component {
               <img src={product.image} alt={product.title} />
               <strong>{product.title}</strong>
               <span>{product.priceFormated}</span>
-              <button type="button">
+              <button type="button" onClick={() => this.handleAddProduct(product)}>
                 <div>
-                  <MdAddShoppingCart size={16} color="#f47b00"/> 3
+                  <MdAddShoppingCart size={16} color="#f47b00" /> 3
                 </div>
 
                 <span>ADD AO CARRINHO</span>
@@ -58,3 +68,5 @@ export default class Home extends Component {
     );
   }
 }
+
+export default connect()(Home);

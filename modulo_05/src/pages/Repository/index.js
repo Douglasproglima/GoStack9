@@ -38,7 +38,7 @@ export default  class Repository extends Component {
       })
     ]);
     //console.log(repository);
-    console.log(issues);
+    //console.log(issues);
 
     this.setState({
       repository: repository.data,

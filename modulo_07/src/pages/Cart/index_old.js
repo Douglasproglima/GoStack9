@@ -38,7 +38,7 @@ export default  class Cart extends Component {
       })
     ]);
     //console.log(repository);
-    console.log(issues);
+    //console.log(issues);
 
     this.setState({
       repository: repository.data,
