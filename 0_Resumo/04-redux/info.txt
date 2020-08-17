@@ -1,0 +1,10 @@
+yarn add redux react-redux 
+
+No App.js deve se importar o Provider do react-redux;
+Esse Provider irá deixar disponivel o store(estado global) da aplicação para todos os componentes
+
+<Provider store={store}>
+  <Component1></Component1>
+  <Component2></Component2>
+  <Component3></Component3>
+</Provider>
