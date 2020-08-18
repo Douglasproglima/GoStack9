@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { FaSpinner } from 'react-icons/fa';
 import { MdAddShoppingCart } from 'react-icons/md';
@@ -7,6 +8,7 @@ import { formatPrice } from '../../utils/format.js';
 import api from '../../services/api';
 import Container from '../../components/Container';
 import { ProductList } from './styles';
+import * as CartActions from '../../store/modules/cart/actions';
 
 export class Home extends Component {
 
@@ -28,13 +30,10 @@ export class Home extends Component {
 
   handleAddProduct = productparam => {
     //this.props.dispatch: Dispara uma ação para o redux
-    const { dispatch } = this.props;
+    const { addToCart } = this.props;
 
     //Toda action necessita de um TYPE e o conteúdo
-    dispatch({
-      type: 'ADD_TO_CART',
-      productparam,
-    });
+    addToCart(productparam);
   };
 
   render() {
@@ -69,4 +68,6 @@ export class Home extends Component {
   }
 }
 
-export default connect()(Home);
+const mapDispatchToProps = dispatch => bindActionCreators(CartActions, dispatch);
+
+export default connect(null, mapDispatchToProps)(Home);

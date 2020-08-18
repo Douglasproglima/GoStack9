@@ -1,0 +1,12 @@
+ImmerJs: Ferramenta para facilitar o trabalho com Objetos e Arrays que são imutaveis dentro do React
+
+Funcionamento:
+  *Em um ambiente padrão o que dev faz é cria um novo estado do objeto ao inves de alterar;
+  *Com o Immer é possível ter o meio termo entre a Imutabilidade e Mutabilidade.
+  Exemplo:
+    Estado Atual(Current) 
+      -> Realizar Alterações Em cima de uma Copia do estado anterior 
+        -> E depois essa alterações são aplicadas no nosso estado principal. 
+
+
+yarn add immer

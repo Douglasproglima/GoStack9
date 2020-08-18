@@ -1,48 +1,42 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import {MdRemoveCircleOutline, MdAddCircleOutline, MdDelete} from 'react-icons/md';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-
-import api from '../../services/api';
-//import Container from '../../components/Container';
+import { formatPrice } from '../../utils/format';
+import * as CartActions from '../../store/modules/cart/actions';
 import { Container, ProductTable,  Total} from './style';
 
-export default  class Cart extends Component {
-
-  render(){
-
-    return (
-      <Container>
-        <ProductTable>
-          <thead>
-            <tr>
-              <th></th>
-              <th>PRODUTO</th>
-              <th>QTDE.</th>
-              <th>SUBTOTAL</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
+function Cart({ cart, removeFromCart }) {
+  return (
+    <Container>
+      <ProductTable>
+        <thead>
+          <tr>
+            <th></th>
+            <th>PRODUTO</th>
+            <th>QTDE.</th>
+            <th>SUBTOTAL</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          { cart.map(product => (
             <tr>
               <td>
-                <img
-                  src="https://static.netshoes.com.br/produtos/tenis-adidas-vl-court-20-masculino/72/NQQ-0862-172/NQQ-0862-172_zoom2.jpg?ts=1581955412&?ims=544xhttps://static.netshoes.com.br/produtos/tenis-adidas-vl-court-20-masculino/72/NQQ-0862-172/NQQ-0862-172_zoom2.jpg?ts=1581955412&?ims=1088x"
-                  alt="Tênis "
-                />
+                <img src={product.image} alt={product.title} />
               </td>
               <td>
-                <strong>Tênis Adidas Vl Court 2.0 Masculino - Preto e Cinza</strong>
-                <span>R$ 164,99</span>
+                <strong>{product.title}</strong>
+                <span>{product.priceFormatted}</span>
               </td>
               <td>
                 <div>
                   <button type="button">
-                    <MdRemoveCircleOutline size={20} color="#f47b00"/>
+                    <MdRemoveCircleOutline size={20} color="#f47b00" onClick={() => {}}/>
                   </button>
-                  <input type="number" readOnly value={2}/>
+                  <input type="number" readOnly value={product.amount}/>
                   <button type="button">
-                    <MdAddCircleOutline size={20} color="#f47b00"/>
+                    <MdAddCircleOutline size={20} color="#f47b00" onClick={() => {}}/>
                   </button>
                 </div>
               </td>
@@ -50,22 +44,31 @@ export default  class Cart extends Component {
                 <strong>R$ 164,99</strong>
               </td>
               <td>
-                <button type="button">
+                <button type="button" onClick={() => removeFromCart(product.id)}>
                   <MdDelete size={25} color="#f47b00"/>
                 </button>
               </td>
             </tr>
-          </tbody>
-        </ProductTable>
+          )) }
+        </tbody>
+      </ProductTable>
 
-        <footer>
-          <button type="button">Finalizar Pedido</button>
-          <Total>
-            <span>TOTAL</span>
-            <strong>R$ 329,00</strong>
-          </Total>
-        </footer>
-      </Container>
-    );
-  };
-}
+      <footer>
+        <button type="button">Finalizar Pedido</button>
+        <Total>
+          <span>TOTAL</span>
+          <strong>R$ 329,00</strong>
+        </Total>
+      </footer>
+    </Container>
+  );
+};
+
+const mapStateToProps = state => ({
+  cart: state.cart,
+});
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(CartActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
