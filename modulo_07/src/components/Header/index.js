@@ -5,8 +5,6 @@ import {MdShoppingBasket} from 'react-icons/md';
 import {Container, Cart} from './styles';
 import logo from '../../assets/images/logo.svg';
 
-console.tron.log('TESTE');
-
 function Header({cartQtde}) {
   return (
     <Container>
