@@ -48,10 +48,18 @@ export const ProductTable = styled.table`
   width: 100%;
 
   thead th {
-    color: #ffffff;
+    color: #f47b00;
+    font-size: 18px;
     text-align: left;
     padding: 12px;
+
+
   }
+
+  hr {
+      color: #f47b00;
+      width: 100%;
+    }
 
   tbody td {
     padding: 12px;
