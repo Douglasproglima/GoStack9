@@ -1,7 +1,8 @@
 import { call, select, put, all, takeLatest } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 import api from '../../../services/api';
-import {addToCartSuccess, updateAmount} from './actions';
-import {formatPrice} from '../../../utils/format';
+import { addToCartSuccess, updateAmount } from './actions';
+import { formatPrice } from '../../../utils/format';
 
 //O asterico(*) tem o sentido de assincrono quase o mesmo de async
 function* addToCart({ id }) {
@@ -15,7 +16,7 @@ function* addToCart({ id }) {
   const amount = currentAmount + 1;
 
   if(amount > stockAmount) {
-    console.tron.warn('Error ');
+    toast.warn('🦄 Estoque insuficiente!');
     return;
   }
 

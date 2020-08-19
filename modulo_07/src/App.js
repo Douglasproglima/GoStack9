@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+/* import { Bounce, Slide, Flip, Zoom } */
+import { ToastContainer, Flip } from 'react-toastify';
 import './config/ReactotronConfig';
 
 import Routes from './routes';
@@ -15,6 +17,19 @@ function App() {
         <Header />
         <Routes />
         <GlobalStyle />
+        <ToastContainer
+          className="toast-container"
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnHover={false}
+          draggable={true}
+          progress={undefined}
+          transition={Flip}
+        />
       </BrowserRouter>
     </Provider>
   );
