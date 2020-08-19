@@ -27,12 +27,12 @@ export class Home extends Component {
     });
   }
 
-  handleAddProduct = productparam => {
+  handleAddProduct = id => {
     //this.props.dispatch: Dispara uma ação para o redux
-    const { addToCart } = this.props;
+    const { addToCartRequest } = this.props;
 
     //Toda action necessita de um TYPE e o conteúdo
-    addToCart(productparam);
+    addToCartRequest(id);
   };
 
   render() {
@@ -53,7 +53,7 @@ export class Home extends Component {
               <strong>{product.title}</strong>
               <span>{product.priceFormated}</span>
 
-              <button type="button" onClick={() => this.handleAddProduct(product)}>
+              <button type="button" onClick={() => this.handleAddProduct(product.id)}>
                 <div>
                   <MdAddShoppingCart size={16} color="#FFF" />{' '}
                   {amount[product.id] || 0}

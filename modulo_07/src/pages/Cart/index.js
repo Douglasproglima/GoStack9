@@ -64,7 +64,6 @@ function Cart({ cart, removeFromCart, updateAmount, total }) {
       <footer>
         <button type="button">Finalizar Pedido</button>
         <Total>
-          <span>TOTAL</span>
           <strong>{total}</strong>
         </Total>
       </footer>

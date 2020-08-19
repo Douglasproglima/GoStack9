@@ -1,0 +1,8 @@
+Redux-saga: Nada mais é do que midleware:
+  *Um midleware é um interceptador de actions diferente do midleware do nodejs
+  *Sempre que disparamos uma action um midleware pode ser executado fazendo alguma coisa(Sideeffect)
+  *Sideeffect pode ser assincromo, sincrono 
+
+Instalação:
+  yarn add redux-saga
+
