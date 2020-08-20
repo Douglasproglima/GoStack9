@@ -35,6 +35,10 @@ export class Home extends Component {
     addToCartRequest(id);
   };
 
+  handleRedirectToCart = () => {
+    this.props.history.push('/cart');
+  };
+
   render() {
     const { products } = this.state;
     const { amount } = this.props;
@@ -60,6 +64,9 @@ export class Home extends Component {
                 </div>
 
                 <span>ADD AO CARRINHO</span>
+              </button>
+              <button className="btn-redirect-cart" type="button" onClick={this.handleRedirectToCart}>
+                <span>IR P/ CARRINHO</span>
               </button>
             </li>
           )) }

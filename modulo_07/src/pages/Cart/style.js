@@ -52,8 +52,6 @@ export const ProductTable = styled.table`
     font-size: 18px;
     text-align: left;
     padding: 12px;
-
-
   }
 
   hr {
@@ -87,6 +85,7 @@ export const ProductTable = styled.table`
     align-items: center;
 
     input {
+      text-align: center;
       border: 1px solid #dddddd;
       border-radius: 4px;
       color: #666666;

@@ -49,7 +49,7 @@ function Cart({ cart, removeFromCart, updateAmountRequest, total }) {
                 </div>
               </td>
               <td>
-                <strong>{product.subtotal}</strong>
+                <strong style={{fontSize:18}}>{product.subtotal}</strong>
               </td>
               <td>
                 <button type="button" onClick={() => removeFromCart(product.id)}>

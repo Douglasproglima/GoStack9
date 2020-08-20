@@ -149,6 +149,29 @@ export const ProductList = styled.ul`
         font-weight: bold;
       }
     }
+
+    .btn-redirect-cart {
+      background: #f47b00;
+      color: #ffffff;
+      border: 0;
+      border-radius: 4px;
+      margin-top: 5px;
+      padding: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      transition: background 0.2s;
+
+      &:hover {
+        background: ${darken(0.06, '#f47b00')};
+      }
+
+      >span {
+        flex: auto;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
   }
 
 `;
