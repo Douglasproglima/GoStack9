@@ -1,0 +1,67 @@
+React Hooks:
+  *Basicamente o react hooks vem para substituir o uso dos states, visto que para usar o states
+  é necessário usar o formato CLASS.
+
+  Os principais HOOKS:
+    /**********************************************************************************************/
+    useState:
+      Para ter criar estado em um componente no formato de Function.
+        const [tech, setTech] = useState([]);
+        const [newTech, setNewTech] = useState('');
+    /**********************************************************************************************/
+    useEffect:
+      Este hook substitui os métodos do ciclo de vida de componente no formato de CLASS
+        FORMATO CLASS:
+          **componentDidMount: Executa assim que o componente aparece na tela
+          **componentDidUpdate: Executar sempre que houver alterações nas props ou estado
+          **componentWillMount: Executa quando o componente deixa de existir
+
+        FORMATO FUNCTION:
+          **Comparado ao componentDidMount:
+          useEffect(() => {
+            const storageTech = localStorage.getItem('tech');
+            if(tech) setTech(JSON.parse(storageTech));
+
+            **componentWillMount ->
+                Basta retornar uma função dentro do useEffect.
+                a function abaixo será executada toda vez que o componente deixar de existir
+            return () => {
+              // document.removeEventListernter();
+            };
+          }, []);
+
+          **Comparado ao componentDidUpdate:
+            1 Param: É a função que será executada
+            2 Param: Quando ela será executada.
+                    O 2 param é um array de dependências que fica monitorando alterações em determinadas
+                    variáveis.
+                    Ou seja o hook abaixo será executado toda vez que houver alteração no array tech
+          useEffect(() => {
+            localStorage.setItem('tech', JSON.stringify(tech));
+
+            return () => {
+              // document.removeEventListernter();
+            };
+          }, [tech]);
+
+    /**********************************************************************************************/
+    useMemo:
+      QUANDO USAR?
+        Usado para fazer rotinas complexas que não precisam ser executadas com frequencia ou toda
+        vez que um componente seja reinderizado.
+
+      useMemo(ArrowFunction() => ValorEsperado, [dependencias] );
+      Exemplo: const techSize =  useMemo(() => tech.length, [tech]);
+
+    /**********************************************************************************************/
+    useCallback:
+      É similar ao useMemo, porém mas ao invés de retornar um único valor ele retornar
+      uma FUNÇÃO.
+
+      QUANDO USAR?
+        Como uma função do tipo handleAdd, HandleUpdate, HandleDelete etc....
+
+      CUIDADO:
+        Não há necessidade de usar isso sempre, apenas funções que utilizam os ESTADOS ou PROPRIEDADES
+        do componente ou qualquer tipo de VARIAVEL dentrodo escopo da function principal.
+

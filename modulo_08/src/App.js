@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo, useCallback} from 'react';
 /*
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
@@ -21,10 +21,19 @@ function App() {
 
   const [newTech, setNewTech] = useState('');
 
+  /* Sem o hooks useCallback */
+  /*
   function handleAdd() {
     setTech([...tech, newTech]);
     setNewTech('');
   }
+  */
+
+  //COM O useCallback
+  const handleAdd = useCallback(() => {
+    setTech([...tech, newTech]);
+    setNewTech('');
+  }, [newTech, tech]);
 
   /*
   componentDidMount ->
@@ -62,6 +71,9 @@ function App() {
     };
   }, [tech]);
 
+  //useMemo(function() => que retorna o valor, [dependencias] );
+  const techSize =  useMemo(() => tech.length, [tech]);
+
   return (
     <>
       <input type="text"
@@ -73,6 +85,15 @@ function App() {
       <ul>
         {tech.map(t => (<li key={t}>{t}</li>))}
       </ul>
+
+      {/*
+        Da forma abaixo é chamado toda vez que o return é executado, ou seja,
+        digitar uma letra no input executa o return novamente
+      */}
+      {/* <strong>Qtde. de Skills: {techSize}</strong> */}
+
+      {/* Da forma abaixo executa apenas quando sofrer alteração na no array */}
+      <strong>Qtde. de Skills: {techSize}</strong>
     </>
   );
 }
