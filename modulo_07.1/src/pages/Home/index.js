@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { FaSpinner } from 'react-icons/fa';
 import { MdAddShoppingCart } from 'react-icons/md';
 import { formatPrice } from '../../utils/format.js';
@@ -10,9 +9,16 @@ import Container from '../../components/Container';
 import { ProductList } from './styles';
 import * as CartActions from '../../store/modules/cart/actions';
 
-function Home({ amount, addToCartRequest }){
+export default function Home() {
 
   const[products, setProducts] = useState([]);
+
+  const amount = useSelector(state => state.cart.reduce((sumAmount, product) => {
+    sumAmount[product.id] = product.amount;
+    return sumAmount;
+  }, {}),);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function loadProduct(){
@@ -30,7 +36,7 @@ function Home({ amount, addToCartRequest }){
 
   function handleAddProduct(id) {
     //Toda action necessita de um TYPE e o conteúdo
-    addToCartRequest(id);
+    dispatch(CartActions.addToCartRequest(id));
   }
 
   let history = useHistory();
@@ -70,14 +76,3 @@ function Home({ amount, addToCartRequest }){
     </Container>
   );
 }
-
-const mapStateToProps = (state) => ({
-  amount: state.cart.reduce((amount, product) => {
-    amount[product.id] = product.amount;
-    return amount;
-  }, {}),
-});
-
-const mapDispatchToProps = (dispatch) => bindActionCreators(CartActions, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);

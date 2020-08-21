@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {MdShoppingBasket} from 'react-icons/md';
 import {Container, Cart} from './styles';
 import logo from '../../assets/images/logo.svg';
 
-function Header({cartQtde}) {
+export default function Header() {
+  const cartQtde = useSelector(state => state.cart.length);
+
   return (
     <Container>
       <Link to="/">
@@ -22,8 +24,3 @@ function Header({cartQtde}) {
     </Container>
   )
 }
-
-export default connect(state => ({
-  cartQtde: state.cart.length, //Vem do rootReducer
-
-}))(Header);
