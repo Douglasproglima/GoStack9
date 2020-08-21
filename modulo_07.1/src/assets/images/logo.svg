@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 277 36" width="277" height="36">
+	<defs>
+		<image width="52" height="36" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAkCAMAAADxcOlCAAAAAXNSR0IB2cksfwAAAEVQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////Up1zwgAAABd0Uk5TABCP358g/89ggO+/UDAff0CQcKCvwG+qVogOAAABz0lEQVR4nJVU7YKtIAjUUFSoLau77/+oC2ZfZ6u7zY9THUWGGdCYHbYB581LOAQM9l1MRGcSNq9iPJBwY2zfBDkkDSV6UVaHiFpPi/z3IECHX/rC2P81pscUl3I8rFFD+8zUIwixaGoUNJ0+EN2TA4xeAlP9SiCiBMzj9FSgJZAf8WnFMIhlnTETjrfkhMnshy1TPYhNIwvUXQc5zBnp0yERJjPjjW/aPybCgd0CBlta5FIMLof5gHw+VPkyiYZfF0FzpZ0Qzo2XyWcO+O8qU0fVzhbO3aBaGAvXVamdZcFzfakYcTC9mHY9ZSPVQUpI8fB/AMtAd6PpJ1oWOsBm31K88wR33WRNKDeEn44UZy1oPNt+QkaIC8W9eTzhHE14mEw1uCSrz4W3CvHUuEKN+l8U20kM5psWVAxV/RGPlvkYEMN4zzEt24XifNzUCU3kaofV5ipY/VGrpZ2s6DKcWQhNcIVmdhU76URFiEifd0yhCTcsVYhYcobPHbL0OUIbqvqrdUewXqotnBHXE5WcBncXQR2fsc5UW9QvN9kZt/QKVH1r2k0qAdwLsVUtyeLe4X5k3O6Ennkw33wFpQPLq8wVEm/WJRA3Z/gfQq5ZfwBvFBKSQO/neAAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.txt0 { font-size: 25px;fill: #f47b00;font-weight: 700;font-family: "Roboto-Bold", "Roboto" }
+	</style>
+	<use id="Background" href="#img1" x="227" y="0" />
+	<text id="Text layer 1" style="transform: matrix(1,0,0,1,0,33)" >
+		<tspan x="0" y="0" class="txt0">PROGLIMASHOES</tspan>
+	</text>
+</svg>

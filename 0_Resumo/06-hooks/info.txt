@@ -11,6 +11,16 @@ React Hooks:
     /**********************************************************************************************/
     useEffect:
       Este hook substitui os métodos do ciclo de vida de componente no formato de CLASS
+      A melhor forma de trabalhar com ASYNC usando o useEffect é dentro do corpo da useEffect
+      criar outra function com assinatura async:
+      EXEMPLO:
+        useEffect(() => {
+          async function nomeFunction(){};
+          nomeFunction();
+        }, []);
+
+
+
         FORMATO CLASS:
           **componentDidMount: Executa assim que o componente aparece na tela
           **componentDidUpdate: Executar sempre que houver alterações nas props ou estado
