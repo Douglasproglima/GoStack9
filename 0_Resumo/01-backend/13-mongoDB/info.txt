@@ -6,4 +6,4 @@ Powershell:
     yarn add mongoose
 
   3 - src/database/index.js, criar o seguinte método após o init() {...}
-    mongo() {}
+    mongo() {} 
