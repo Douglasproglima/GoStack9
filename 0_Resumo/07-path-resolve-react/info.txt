@@ -1,0 +1,51 @@
+Para tratar o caminhos dos arquivos ao invés ../../pasta/arquivo
+
+Instalar:
+yarn add customize-cra  react-app-rewired -D
+
+yarn add babel-plugin-root-import -D
+
+yarn add eslint-import-resolver-babel-plugin-root-import -D
+
+Criar os seguintes arquivos na raiz do projeto:
+  
+  config-override.js:
+
+    const { addBabelPlugin, override } = require('customize-cra');
+
+    module.exports = override(
+      addBabelPlugin([
+        'babel-plugin-root-import',
+        {
+          rootPathSuffix: 'src',
+        },
+      ])
+    );
+
+
+  jsconfig.json
+
+  {
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "~/*": ["*"],
+    }
+  }
+}
+
+
+ALTERAR O ARQUIVO ESLINT:
+  rules: {
+    {
+      .....  outras configuracoes.......
+    },
+  settings: {
+    "import/resolver": {
+      "babel-plugin-root-import": {
+        rootPathSuffix: "src"
+      },
+    },
+  },
+  
+  }
