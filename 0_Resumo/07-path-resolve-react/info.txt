@@ -1,7 +1,24 @@
 Para tratar o caminhos dos arquivos ao invés ../../pasta/arquivo
 
 Instalar:
-yarn add customize-cra  react-app-rewired -D
+
+Qual problema o react app rewired resolve: 
+https://dev.to/aryclenio/parte-3-configuando-a-template-com-react-app-rewired-2bdi
+  
+    yarn add customize-cra react-app-rewired -D
+
+ALTERAR O PACKEGE.JSON NA PARTE DOS SCRIPTS:
+
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+
+    /*Forma Padrão dos SCRIPTS*/
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
 
 yarn add babel-plugin-root-import -D
 
@@ -9,7 +26,7 @@ yarn add eslint-import-resolver-babel-plugin-root-import -D
 
 Criar os seguintes arquivos na raiz do projeto:
   
-  config-override.js:
+  config-overrides.js:
 
     const { addBabelPlugin, override } = require('customize-cra');
 
@@ -25,11 +42,11 @@ Criar os seguintes arquivos na raiz do projeto:
 
   jsconfig.json
 
-  {
+{
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "~/*": ["*"],
+      "~/*": ["*"]
     }
   }
 }
