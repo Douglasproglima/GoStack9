@@ -20,12 +20,13 @@ export const Content = styled.div`
     margin-top: 30px;
 
     input {
-      background: rgba(0,0,0,0.1);
+      background: rgba(0,0,0,0.4);
       border: 0;
-      border-radius: 4px;
+      border-radius: 8px;
       height: 40px;
-      padding:0 15px;
-      color: #fff;
+      padding:0 18px;
+      color: #ffffff;
+      font-size: 14px;
       margin: 0 0 10px;
 
       &::placeholder {
@@ -42,11 +43,25 @@ export const Content = styled.div`
       border: 0;
       border-radius: 4px;
       font-size: 16px;
+      transition: background 0.2s;
 
       &:hover {
         background: ${darken(0.05, '#d84e00')}
       }
+    }
 
+    a {
+      text-decoration: none;
+      font-size: 16px;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #ffffff;
+      opacity: 0.8;
+      transition: background 0.5s;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 `;
