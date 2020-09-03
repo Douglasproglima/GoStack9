@@ -11,7 +11,7 @@ export default function SignUp() {
   return (
     <>
       <img src={logo} alt="GoBarber"/>
-      <Form onSumit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Input name="name" type="text" placeholder="Nome completo"/>
         <Input name="email" type="email" placeholder="Informe o seu e-mail"/>
         <Input name="password" type="password" placeholder="Informe a sua senha"/>
