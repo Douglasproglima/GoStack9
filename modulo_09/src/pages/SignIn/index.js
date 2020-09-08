@@ -11,8 +11,8 @@ const schemaYup = Yup.object().shape({
     .email('E-mail inválido.')
     .required('O e-mail é obrigatório'),
   password: Yup.string()
-    .min(6, 'A senha deve contér pelo ao menos 6 caracteres')
-    .required('A senha é obrigatória.'),
+    .min(6, 'A senha precisa ter no mínimo 6 caracteres.')
+    .required('A senha é obrigatória'),
 });
 
 // A estilização das msg está no arquivo _layouts/auth/styles.js
