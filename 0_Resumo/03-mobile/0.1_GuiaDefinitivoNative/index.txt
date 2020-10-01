@@ -1,0 +1,178 @@
+1 - Ambiente de Desenvolvimento
+  Para configurar o ambiente de desenvolvimento basta seguir os tutoriais da Rocketseat, ficou muito boa essa doc.
+  https://react-native.rocketseat.dev/
+
+2 - Criando um projeto
+  Para criar um projeto com React Native podemos, instalar o react-native-cli e podemos usar o npx também.
+
+  Para instalar usando o CLI, basta instalar o react-native-cli de forma global na máquina:
+    yarn add react-native-cli
+
+  E para criar o projeto só executar:
+    react-native init NomeDoProjeto
+    
+  Ou se quiser usar o npx:
+    npx react-native init MyAwesomeApp
+
+  Erros mais Comuns:
+    Na Doc da Rocketseat tem um Menu de Erros Comuns, que pode ajudar a resolver alguns problemas na 
+    execução do projeto.
+    https://docs.rocketseat.dev/ambiente-react-native/errors/android
+
+  Dicas Genericas:
+    Se o Metro Bundler não abriu, ou se você fechou sem querer, você pode abrir novamente, basta rodar o comando:
+      react-native start
+    
+    Se a aplicação já foi instalada, não precisa executar react-native run-ios novamente, bastar executar:
+      react-native start
+
+3 - ESLint, Prettier e EditorConfig
+  Vamos configurar as ferramentas para manter um guia de estilos, e padrão de código no projeto.
+
+  Para criar o editorConfig no VSCode basta clicar com botão direito na raiz do projeto e clicar em generate 
+  .editorConfig e fazer só alguns ajustes:
+    root = true
+    [*]
+    end_of_line = lf
+    indent_style = space
+    indent_size = 2
+    charset = utf-8
+    trim_trailing_whitespace = true
+    insert_final_newline = true
+    Eslint
+  
+  Instalar eslint: yarn add eslint -D
+  E no terminal executar:  yarn eslint --init
+
+  E configurar, conforme abaixo:
+  ❯ yarn eslint --init             
+    ? How would you like to use ESLint? To check syntax, find problems, and enforce code style
+    ? What type of modules does your project use? JavaScript modules (import/export)
+    ? Which framework does your project use? React
+    ? Does your project use TypeScript? No
+    ? Where does your code run? None
+    ? How would you like to define a style for your project? Use a popular style guide
+    ? Which style guide do you want to follow? Airbnb (https://github.com/airbnb/javascript)
+    ? What format do you want your config file to be in? JavaScript
+    ? Would you like to install them now with npm? Yes
+  Depois só remover o arquivo package-lock.json pois estamos usando apenas o yarn. e Depois no terminal executar o comando yarn para atualizar as dependências no yarn.lock.
+
+  Se ocorrer algum erro no emulador, não tem problema, pode deixar assim por enquanto.
+
+  Vamos instalar mais algumas extensões para configurar no eslint.
+    yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D
+  
+  Pronto, agora podemos configurar o .eslintrc.js.
+
+    module.exports = {
+      env: {
+        es6: true,
+      },
+      extends: [
+        'airbnb',
+        'prettier',
+        'prettier/react', // integração do prettier com react
+      ],
+      globals: {
+        Atomics: 'readonly',
+        SharedArrayBuffer: 'readonly',
+      },
+      parser: 'babel-eslint', // para entender as ultimas versões do EcmaScript
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion: 2018,
+        sourceType: 'module',
+      },
+      plugins: [
+        'react',
+        'prettier', // adicionando mais um plugin
+      ],
+      rules: {
+        'prettier/prettier': 'error',
+        'react/jsx-filename-extension': [
+          'warn',
+          {
+            extensions: ['.jsx', '.js'],
+          },
+        ],
+        'import/prefer-default-export': 'off', // para garantir que import/export sem ser apenas o i/e default
+      },
+    };
+  
+  E também criaremos o arquivo .prettierrc para definir mais algumas regras(https://prettier.io/docs/en/options.html):
+    {
+      "singleQuote":  true,
+      "trailingComma":  "es5"
+    }
+
+  Agora toda vez que salvarmos o arquivo o prettier irá trocar as aspas duplas por simples e adicionar , em objetos e arrays.
+  Pronto, agora no App.js você vai ver alguns errinhos e só ajustar conforme a regra do airbnb que está no .eslintrc.js.
+
+  Problemas do MetroBundle:
+    Grande partes dos problemas são resolvidos executando os comandos:
+    1 - Sempre resolve na grande maioria das vezes.
+      react-native start --reset-cache
+
+  04 - Configurando o Reactotron
+    Com React Native temos uma forma de debug com o console.log assim como temos no browser.
+    Só ir no emulador e e com cmd+d ou ctrl+d podemos clicar em debug, e podemos debugar a aplicação no navegador.
+    
+    Mas no React Native é muito ruim debugar a aplicação desse jeito.
+    Uma alternativa é utilizar um debugger externo, o Reactotron que tem uma integração muito com com console.log, para aplicações com React e também com Redux, Saga. E sua interface gráfica é muito bonita e rápida. Vale muito a pena utilizar. Funciona na web também, mas não faz muito sentido, apenas se utilizar o Redux, ai faz mais sentido e também vai do gosto do desenvolvedor.
+    
+    Para instalar basta acessar o repositório oficial do Reactotron e fazer o download do Reactotron.app na sua máquina (linux, windows ou mac).
+    E para baixar a biblioteca de integração com nosso projeto, executamos no terminal:
+      yarn add reactotron-react-native
+    
+    Tem que ser instalado como dependência de projeto mesmo.
+    Depois de instalar podemos criar uma pasta src e dentro de la uma outra pasta config e adicionar 
+    um arquivo ReactotronConfig.js para configurar o Reactotron.
+
+    import Reactotron from 'reactotron-react-native';
+    if (__DEV__) {
+      const tron = Reactotron.configure({ host: '127.0.0.1' })
+        .useReactNative()
+        .connect();
+
+      console.tron = tron;
+
+      tron.clear();
+    }
+
+    Isso faz com que o Reactotron só funcione em modo de desenvolvimento.
+    if (__DEV__) {...
+      Porém para o eslint não ficar reclamando, temos que declarar essa variavél como global no arquivo .eslintrc:
+    ...
+    globals: {
+        Atomics: 'readonly',
+        SharedArrayBuffer: 'readonly',
+        __DEV__: 'readonly',
+      },
+    ...
+
+    Criamos uma propriedade tron dentro do console com as configurações do reactotron para podermos utilizar sem precisar importar em cada código, basta chamar o console.tron.log('meu log aqui'); e o log será exibindo da interface do Reactotron.
+      console.tron = tron;
+    
+    Toda vez que o Reactotron reinicia eu limpo os logs anteriores, isso não é obrigatório, só por gosto mesmo.
+      tron.clear();
+    
+    Se estiver usando o emulador do celular tem que passar o host: 'com_seu_ip_192....'
+      Reactotron.configure({ host:  '127.0.0.1' })
+    
+    Se estiver no emulador do Android tem que rodar no terminal:
+      adb reverse tcp:9090 tcp: 9090
+    
+    O adb tem que estar na variável de ambiente, ou pode ir:
+      ~/Android/Sdk/platform-tools/adb reverse tcp:9090 tcp: 9090
+    
+    E agora para utilizar mesmo, precisamos chamar a configuração e pode ser no index.js que é o App.js que renomeie e coloquei na raiz da pasta src:
+      import React from  'react';
+      import { SafeAreaView, StyleSheet, Text } from  'react-native';
+
+      import  './config/ReatotronConfig';
+
+      console.tron.log('TESTANDO A CONFIG DO REACTTRON')
+      console.tron.log('TESTANDO A CONFIG DO REACTTRON', 2  +  3);
+      ...
