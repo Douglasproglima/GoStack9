@@ -1,0 +1,99 @@
+RECEITA AMBIENTE REACTNATIVE WINDOWS - 05/2020
+
+Requisitos Obrigatórios
+	1 -  Chocolatey - Gerenciador de Pacote do Windowns
+		1.1 Abra o powershell  como Admin e rode o comando abaixo e escolha S:
+		Para que a instalação consiga ocorrer, precisamos fazer uma verificação: se a Política de Execução de nosso Terminal nos permite executar scripts ou realizar o download de programas e pacotes. Para realizar essa verificação, execute o seguinte comando:
+
+		Get-ExecutionPolicy
+		Se o retorno for igual a “Restricted”, precisaremos alterar essa configuração. Faremos isso executando o seguinte comando:
+
+		Set-ExecutionPolicy AllSigned 
+		Ele já deve resolver a questão. Contudo, se não funcionar, execute o abaixo:
+
+		Set-ExecutionPolicy Bypass -Scope Process
+		Após isso, vamos fazer a instalação do Chocolatey usando este comando:
+
+		Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+	2- Instalação Node, Python2, JDK
+		2.1 Abra o powershell  como Admin e rode o comando abaixo:
+			choco install -y nodejs.install python2 jdk8
+			
+		2.2 Conferir se todos os itens acima estão instalados, no terminal digite de forma separada:
+			node -v
+			npm -v
+			python -V
+			java -version 			
+			
+	
+	3 - Configuração das Variáveis de Ambiente
+		3.1 - Painel de Controle > Sistema > Configurações avançadas do sistema > Variáveis de Ambiente > VARIAVEIS DE USUARIO PARA USER_XYZ >  Botão Novo:
+			Nome da Variável.: ANDROID_HOME
+			Valor da variavel: Path do SDK Exemplo: C:\Users\seu_usuario\AppData\Local\Android\Sdk 
+			
+		3.2 - Depois selecione o Path da variável de usuário e clique em Editar, agora clique em Novo e escreva o seguinte comando:
+			%ANDROID_HOME%\platform-tools
+			%ANDROID_HOME%\tools
+						
+			OU
+			Baixe o SDK e descompacte ele em um path de sua preferência:
+				https://dl.google.com/android/repository/sdk-tools-windows-3859397.zip
+			
+	
+	OBS:
+		Se não instalar todos os itens não funciona
+		
+	4 - No seu celular habilite o modo desenvolvedor e ative a opção USB debugging:
+		OBS: Esse procedimento pode variar dependendo da versão do Android se o tutorial abaixo não funcionar, pesquise no google:
+			Ativar USB Debugging Modelo_Seu_Celular
+			
+		https://tecnoblog.net/277750/como-ativar-o-modo-desenvolvedor-no-android/
+		
+	5 - Verificar se se há dispositivos conectados
+		Abra o powershell e rode:
+			adb devices
+			
+		Se tudo estiver OK, irá mostrar algo similar:		
+			PS C:\Windows\system32> adb devices
+			List of devices attached
+			BH9047RU99      device
+	
+	6 - Expo no powershell digite:
+		npm install -g expo-cli
+		
+		yarn add expo
+		
+		6.1 - Conferir se o expo foi instalados (Powershell)
+			expo --version
+			
+		6.2 - Instalar o app do Expo no seu dispositivo Android:
+			https://play.google.com/store/apps/details?id=host.exp.exponent
+			
+		6.3 Testar o Expo lendo o QR do site abaixo, voce tera acesso ao playgroud do ambiente demo:
+			https://expo.io/@react-navigation/NavigationPlayground
+			
+	7 - Criando o Projeto?
+		No terminal digite:
+			expo init hello_world
+			
+		escolha o templete que vc quiser navegando com a setas para baixo/cima
+		
+		
+	8 - Depois de instalar acesse a pasta do seu projeto cd/.... e digite npm start
+	
+	Depois será gerado um QRCode, basta abrir o app Expo no seu celular e escanear o QrCode e pronto.
+	
+	https://www.youtube.com/watch?v=bTfaLDDLCqQ
+
+Usando o Reactnative cli
+	https://react-nativ.rocketseat.dev/android/windows
+	
+	https://react-native.rocketseat.dev/usb/android
+
+	https://react-native.rocketseat.dev/wifi/android/
+
+	https://www.devmedia.com.br/primeiro-app-com-react-native/40737
+	
+	
+	
